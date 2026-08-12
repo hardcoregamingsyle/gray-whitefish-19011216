@@ -48,6 +48,13 @@
             font-size: 1.5rem;
             color: var(--crown-gold);
             font-style: italic;
+            margin-top: 10px;
+        }
+
+        .dates {
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-top: 15px;
         }
 
         main {
@@ -58,68 +65,98 @@
 
         section {
             margin-bottom: 50px;
-            padding: 30px;
-            background: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(247,181,0,0.1);
         }
 
         h2 {
-            color: var(--crown-red);
             font-size: 2rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--crown-gold);
+            color: var(--crown-gold);
+            border-bottom: 2px solid var(--crown-red);
             padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         p {
             margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
-        .quote {
-            font-style: italic;
-            color: var(--crown-gold);
-            font-size: 1.2rem;
-            padding: 20px;
+        .quote-box {
+            background: var(--card-bg);
             border-left: 4px solid var(--crown-gold);
+            padding: 20px 25px;
             margin: 20px 0;
-            background: rgba(247,181,0,0.1);
-            border-radius: 5px;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
         }
 
-        .timeline {
-            list-style: none;
-            padding: 0;
-        }
-
-        .timeline li {
-            padding: 15px;
-            margin: 10px 0;
-            background: rgba(201,42,42,0.2);
-            border-radius: 10px;
-            border-left: 4px solid var(--crown-red);
-        }
-
-        .timeline year {
+        .quote-author {
+            display: block;
+            margin-top: 10px;
             color: var(--crown-gold);
             font-weight: bold;
         }
 
+        .achievement-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(247, 181, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(247, 181, 0, 0.2);
+        }
+
+        .achievement-title {
+            color: var(--crown-red);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .legacy-section {
+            background: linear-gradient(135deg, rgba(201,42,42,0.1) 0%, rgba(247,181,0,0.1) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .legacy-section h2 {
+            border: none;
+        }
+
         footer {
             text-align: center;
-            padding: 40px 20px;
-            background: var(--card-bg);
-            border-top: 3px solid var(--crown-gold);
+            padding: 30px;
+            border-top: 1px solid rgba(247, 181, 0, 0.3);
+            margin-top: 50px;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
 
-        .memorial-date {
-            color: var(--crown-gold);
-            font-size: 1.2rem;
+        .memorial-button {
+            display: inline-block;
+            background: var(--crown-red);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
             margin-top: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--crown-gold);
         }
 
-        @media (max-width: 600px) {
+        .memorial-button:hover {
+            background: var(--crown-gold);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        @media (max-width: 768px) {
             .logo {
                 font-size: 2rem;
             }
@@ -127,57 +164,101 @@
                 font-size: 1.2rem;
             }
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+            main {
+                padding: 20px 15px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">TECHNOBLADE</div>
-        <div class="subtitle">The Crimson King • Never Surrender</div>
+        <div class="logo">👑 THE CRIMSON KING 👑</div>
+        <div class="subtitle">"The greatest of all time"</div>
+        <div class="dates">June 1, 1999 — June 30, 2022</div>
     </header>
 
     <main>
-        <section id="about">
-            <h2>About Technoblade</h2>
-            <p>Alexander "Technoblade" Quon was more than just a YouTuber - he was a legend who redefined what it meant to be a content creator. Known for his incredible Minecraft gameplay, sharp wit, and infectious enthusiasm, he captured hearts around the world.</p>
-            <p>From Bedwars dominance to Dream SMP storytelling, Technoblade left an indelible mark on gaming culture and inspired millions with his creativity and passion.</p>
-            <div class="quote">"If you're going through hell, keep going."</div>
+        <section id="tribute">
+            <h2>A Life Remembered</h2>
+            <p>Alexandros "Alex" Nikolas Vasilas — known to millions as <strong>Technoblade</strong> — was more than a Minecraft YouTuber. He was a storyteller, a comedian, a competitor, and an inspiration who faced adversity with unwavering determination.</p>
+            
+            <div class="quote-box">
+                "I am the king of the world."
+                <span class="quote-author">— Technoblade</span>
+            </div>
+            
+            <p>From humble beginnings creating Minecraft content to becoming one of the most beloved figures in gaming, Alex touched countless lives through his humor, skill, and genuine kindness. His final battle against cancer became a testament to courage that inspired fans around the world.</p>
         </section>
 
         <section id="achievements">
-            <h2>Legacy & Achievements</h2>
-            <ul class="timeline">
-                <li><year>2013</year> - Created YouTube channel, beginning of an iconic journey</li>
-                <li><year>2014</year> - First viral video, gaining massive following</li>
-                <li><year>2015</year> - Became known for exceptional Bedwars skills</li>
-                <li><year>2018</year> - Joined Dream SMP, becoming one of its most beloved characters</li>
-                <li><year>2019</year> - Reached 1 million subscribers</li>
-                <li><year>2020</year> - Announced cancer diagnosis with remarkable grace</li>
-                <li><year>2022</year> - Passed away peacefully on June 30th</li>
-            </ul>
+            <h2>Legendary Achievements</h2>
+            
+            <div class="achievement-card">
+                <div class="achievement-title">Minecraft Championships Champion</div>
+                <p>Multiple winner of Dream SMP's Minecraft Championships, dominating PvP events and showcasing unparalleled strategic gameplay that made him unbeatable in the eyes of fans.</p>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-title">Philosophy & Storytelling</div>
+                <p>Beyond gameplay, Technoblade created compelling storylines on the Dream SMP, developing complex characters and narratives that captivated audiences worldwide.</p>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-title">Community Impact</div>
+                <p>Founded charity initiatives including "Potatobucks" merchandise sales that raised over $1 million for various causes, proving that kindness can be as powerful as any weapon.</p>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-title">Content Creation</div>
+                <p>Created thousands of videos spanning Minecraft challenges, commentary, music, and storytelling — building a community that spans generations of gamers.</p>
+            </div>
         </section>
 
         <section id="quotes">
-            <h2>Memorable Quotes</h2>
-            <div class="quote">"PvP is not about skill, it's about will."</div>
-            <div class="quote">"I'm going to kill all of you. In my sleep."</div>
-            <div class="quote">"Never surrender. Not ever. Ever."</div>
-            <div class="quote">"The only way out is through."</div>
+            <h2>Famous Words</h2>
+            
+            <div class="quote-box">
+                "PvP is not about being the best. It's about having fun."
+                <span class="quote-author">— On competition</span>
+            </div>
+            
+            <div class="quote-box">
+                "You can't win every fight, but you always have to try."
+                <span class="quote-author">— On perseverance</span>
+            </div>
+            
+            <div class="quote-box">
+                "Kindness is more important than winning."
+                <span class="quote-author">— On values</span>
+            </div>
+            
+            <div class="quote-box">
+                "The only way to make your legacy last is to make it meaningful."
+                <span class="quote-author">— On impact</span>
+            </div>
+            
+            <div class="quote-box">
+                "I'm going to be remembered for being the best, and I'm going to keep fighting until I die."
+                <span class="quote-author">— On determination</span>
+            </div>
         </section>
 
-        <section id="community">
-            <h2>The Community That Remembers</h2>
-            <p>Even after his passing, Technoblade's impact continues to grow. His community has rallied together, creating art, music, and stories that honor his memory. From charity streams to memorial videos, fans worldwide celebrate the life of the Crimson King.</p>
-            <p>His story reminds us all that true greatness isn't measured by time, but by the lives we touch and the inspiration we leave behind.</p>
+        <section id="legacy" class="legacy-section">
+            <h2>The Legacy Continues</h2>
+            <p>Though Alex is gone, his spirit lives on through the community he built, the kindness he championed, and the countless hearts he touched. Every time someone plays Minecraft, shares a kind word, or fights for what they believe in — Technoblade's legacy grows stronger.</p>
+            
+            <p><strong>"The Crimson King will never truly die."</strong></p>
+            
+            <a href="#" class="memorial-button">Join the Tribute Community</a>
         </section>
     </main>
 
     <footer>
-        <div class="memorial-date">June 30, 2022 - Forever in Our Hearts</div>
-        <p style="margin-top: 15px; color: var(--text-light);">In loving memory of Alexander Quon</p>
-        <p style="color: var(--crown-gold); margin-top: 10px;">&copy; 2026 Technoblade Tribute - Never Surrender</p>
+        <p>This is a fan-made tribute site dedicated to the memory of Technoblade.</p>
+        <p>&copy; 2026 | Created by fans, for fans | In loving memory of Alex</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">"All Hail Technoblade Forever"</p>
     </footer>
 </body>
 </html>
