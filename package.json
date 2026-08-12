@@ -1,0 +1,13 @@
+{
+  "name": "technoblade-tribute",
+  "version": "1.0.0",
+  "description": "A tribute to Technoblade - The Crimson King",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Open index.html in your browser'",
+    "test": "echo 'No tests needed for static HTML'"
+  },
+  "keywords": ["technoblade","minecraft","tribute","fan-site"],
+  "author": "Technoblade Tribute Team",
+  "license": "MIT"
+}
