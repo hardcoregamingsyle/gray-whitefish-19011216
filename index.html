@@ -6,10 +6,221 @@
 <meta name="description" content="A fan-made tribute to Technoblade: Minecraft legend, Blood God, and beloved creator.">
 <title>Technoblade — A Fan Tribute</title>
 <style>
-...
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0b0e14;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.1) 0%, transparent 70%);
+  animation: pulse 6s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ff4500;
+  text-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+  margin-bottom: 0.5rem;
+  z-index: 1;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #ccc;
+  z-index: 1;
+}
+
+.hero .subtitle {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-top: 1rem;
+  z-index: 1;
+}
+
+.hero .sword {
+  font-size: 5rem;
+  z-index: 1;
+  margin-top: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  color: #ff4500;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ff4500;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.quote {
+  background: #1a1a2e;
+  border-left: 4px solid #ff4500;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+.quote footer {
+  margin-top: 0.5rem;
+  text-align: right;
+  color: #aaa;
+  font-style: normal;
+}
+
+.legacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.legacy-card {
+  background: #1a1a2e;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.legacy-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff4500;
+}
+
+.legacy-card h3 {
+  color: #ff4500;
+  margin-bottom: 0.5rem;
+}
+
+footer.main-footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0b0e14;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+footer.main-footer a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.2rem; }
+  section h2 { font-size: 2rem; }
+}
 </style>
 </head>
 <body>
-...
+<header class="hero">
+  <div class="sword">⚔️</div>
+  <h1>Technoblade</h1>
+  <p>The Blood God, The Blade, The Legend</p>
+  <p class="subtitle">1999 — 2022 · Forever in our hearts</p>
+</header>
+
+<section id="memorial">
+  <h2>In Memoriam</h2>
+  <p>Technoblade (born Alexander) was a Minecraft legend, a beloved content creator, and a fierce competitor. He captivated millions with his skill, humor, and unyielding spirit. On June 30, 2022, he passed away after a battle with cancer, but his legacy lives on through his videos, his community, and the incredible impact he made on the world.</p>
+  <p>This tribute is a small token of gratitude from fans who will never forget the joy he brought us.</p>
+</section>
+
+<section id="quotes">
+  <h2>Memorable Quotes</h2>
+  <div class="quote">
+    <p>"Technoblade never dies."</p>
+    <footer>— The community mantra</footer>
+  </div>
+  <div class="quote">
+    <p>"I don't fight for glory. I fight for the thrill of the fight."</p>
+    <footer>— Technoblade, Minecraft Championship</footer>
+  </div>
+  <div class="quote">
+    <p>"If you want to be a legend, you have to act like one."</p>
+    <footer>— Technoblade</footer>
+  </div>
+</section>
+
+<section id="legacy">
+  <h2>His Legacy</h2>
+  <p>Technoblade's influence extends far beyond Minecraft. He raised over $500,000 for cancer research through charity streams, and his channel continues to inspire new generations of players. His determination, wit, and authenticity are a beacon for the gaming community.</p>
+  <div class="legacy-grid">
+    <div class="legacy-card">
+      <h3>🏆 PvP Champion</h3>
+      <p>Multiple Minecraft Championship wins, Bedwars legend, and the undisputed king of Potato Wars.</p>
+    </div>
+    <div class="legacy-card">
+      <h3>❤️ Fundraiser</h3>
+      <p>Raised over $500,000 for the Sarcoma Foundation of America and other cancer charities.</p>
+    </div>
+    <div class="legacy-card">
+      <h3>📺 Content Creator</h3>
+      <p>Over 10 million subscribers on YouTube, with videos that combined humor, skill, and storytelling.</p>
+    </div>
+    <div class="legacy-card">
+      <h3>👑 Community Icon</h3>
+      <p>His catchphrases, memes, and personality created a community that remains active and supportive.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="main-footer">
+  <p>Made with ❤️ by the Technoblade fan community</p>
+  <p>&copy; 2026 Fan Tribute · Not affiliated with Technoblade or his estate</p>
+  <p>This is a non‑profit fan project. All rights belong to their respective owners.</p>
+</footer>
 </body>
 </html>
