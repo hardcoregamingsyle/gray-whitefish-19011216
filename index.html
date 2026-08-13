@@ -1,226 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A fan-made tribute to Technoblade: Minecraft legend, Blood God, and beloved creator.">
-<title>Technoblade — A Fan Tribute</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A fan-made tribute to Technoblade — Minecraft legend, Blood God, and beloved creator. Technoblade never dies.">
+  <title>Technoblade — A Fan Tribute</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0b0e14;
-  color: #e0e0e0;
-  line-height: 1.6;
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0b0e14;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
 
-.hero {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
+    a {
+      color: #ffd700;
+      text-decoration: none;
+    }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 69, 0, 0.1) 0%, transparent 70%);
-  animation: pulse 6s infinite alternate;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.3); opacity: 1; }
-}
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      overflow: hidden;
+    }
 
-.hero h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  color: #ff4500;
-  text-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
-  margin-bottom: 0.5rem;
-  z-index: 1;
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48cGF0aCBkPSJNMzAgMzBoMjB2MjBIMzB6IiBmaWxsPSIjZmZkNzAwIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+') repeat;
+      opacity: 0.2;
+      pointer-events: none;
+    }
 
-.hero p {
-  font-size: 1.5rem;
-  color: #ccc;
-  z-index: 1;
-}
+    .hero .crown {
+      width: 120px;
+      height: 90px;
+      margin-bottom: 1.5rem;
+    }
 
-.hero .subtitle {
-  font-size: 1.2rem;
-  color: #aaa;
-  margin-top: 1rem;
-  z-index: 1;
-}
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 900;
+      color: #ffd700;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
+      letter-spacing: 2px;
+    }
 
-.hero .sword {
-  font-size: 5rem;
-  z-index: 1;
-  margin-top: 1rem;
-  animation: float 3s ease-in-out infinite;
-}
+    .hero .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.8rem);
+      color: #b0c4de;
+      margin-top: 0.5rem;
+    }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
+    .hero .blood-god {
+      font-size: clamp(0.9rem, 2vw, 1.2rem);
+      color: #cc4444;
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
 
-section {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
+    .hero .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      font-size: 2rem;
+      color: #ffd700;
+      cursor: pointer;
+    }
 
-section h2 {
-  font-size: 2.5rem;
-  color: #ff4500;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #ff4500;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-}
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
 
-section p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
+    /* ---------- Sections ---------- */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
 
-.quote {
-  background: #1a1a2e;
-  border-left: 4px solid #ff4500;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-}
+    section h2 {
+      font-size: 2rem;
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
 
-.quote footer {
-  margin-top: 0.5rem;
-  text-align: right;
-  color: #aaa;
-  font-style: normal;
-}
+    section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #ffd700;
+      margin: 0.5rem auto 0;
+    }
 
-.legacy-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
+    .bio p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
 
-.legacy-card {
-  background: #1a1a2e;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  transition: transform 0.3s, border-color 0.3s;
-}
+    /* ---------- Quotes ---------- */
+    .quotes {
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
 
-.legacy-card:hover {
-  transform: translateY(-5px);
-  border-color: #ff4500;
-}
+    .quote-carousel {
+      position: relative;
+      min-height: 120px;
+    }
 
-.legacy-card h3 {
-  color: #ff4500;
-  margin-bottom: 0.5rem;
-}
+    .quote-slide {
+      display: none;
+      text-align: center;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #b0c4de;
+      line-height: 1.8;
+      animation: fadeIn 0.5s ease;
+    }
 
-footer.main-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #0b0e14;
-  border-top: 1px solid #333;
-  color: #888;
-  font-size: 0.9rem;
-}
+    .quote-slide.active {
+      display: block;
+    }
 
-footer.main-footer a {
-  color: #ff4500;
-  text-decoration: none;
-}
+    .quote-slide .author {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #ffd700;
+      font-style: normal;
+    }
 
-@media (max-width: 600px) {
-  .hero h1 { font-size: 2.5rem; }
-  .hero p { font-size: 1.2rem; }
-  section h2 { font-size: 2rem; }
-}
-</style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quote-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .quote-nav button {
+      background: transparent;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .quote-nav button:hover {
+      background: #ffd700;
+      color: #0b0e14;
+    }
+
+    /* ---------- Legacy ---------- */
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .legacy-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .legacy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .legacy-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .legacy-card h3 {
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .legacy-card p {
+      font-size: 0.95rem;
+      color: #b0c4de;
+    }
+
+    /* ---------- Crown SVG ---------- */
+    .crown-icon {
+      display: inline-block;
+      width: 100px;
+      height: 80px;
+    }
+
+    .crown-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #ffd700;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #0b0e14;
+      border-top: 1px solid #333;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    footer .never-dies {
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero .subtitle { font-size: 1rem; }
+      .quote-slide { font-size: 1.1rem; }
+      section { padding: 2rem 1rem; }
+    }
+  </style>
 </head>
 <body>
-<header class="hero">
-  <div class="sword">⚔️</div>
-  <h1>Technoblade</h1>
-  <p>The Blood God, The Blade, The Legend</p>
-  <p class="subtitle">1999 — 2022 · Forever in our hearts</p>
-</header>
 
-<section id="memorial">
-  <h2>In Memoriam</h2>
-  <p>Technoblade (born Alexander) was a Minecraft legend, a beloved content creator, and a fierce competitor. He captivated millions with his skill, humor, and unyielding spirit. On June 30, 2022, he passed away after a battle with cancer, but his legacy lives on through his videos, his community, and the incredible impact he made on the world.</p>
-  <p>This tribute is a small token of gratitude from fans who will never forget the joy he brought us.</p>
-</section>
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="hero">
+    <div class="crown-icon">
+      <svg viewBox="0 0 100 80">
+        <path d="M10 70 L10 30 L30 45 L50 10 L70 45 L90 30 L90 70 Z" fill="#ffd700"/>
+        <circle cx="50" cy="10" r="6" fill="#ffd700"/>
+        <circle cx="30" cy="45" r="5" fill="#ffd700"/>
+        <circle cx="70" cy="45" r="5" fill="#ffd700"/>
+        <rect x="15" y="70" width="70" height="10" fill="#ffd700"/>
+      </svg>
+    </div>
+    <h1>Technoblade</h1>
+    <p class="subtitle">The Blood God · A Fan Tribute</p>
+    <p class="blood-god">“Technoblade never dies.”</p>
+    <div class="scroll-indicator" onclick="document.getElementById('bio').scrollIntoView({behavior:'smooth'})">&#9660;</div>
+  </header>
 
-<section id="quotes">
-  <h2>Memorable Quotes</h2>
-  <div class="quote">
-    <p>"Technoblade never dies."</p>
-    <footer>— The community mantra</footer>
-  </div>
-  <div class="quote">
-    <p>"I don't fight for glory. I fight for the thrill of the fight."</p>
-    <footer>— Technoblade, Minecraft Championship</footer>
-  </div>
-  <div class="quote">
-    <p>"If you want to be a legend, you have to act like one."</p>
-    <footer>— Technoblade</footer>
-  </div>
-</section>
+  <!-- ========== BIO ========== -->
+  <section id="bio" class="bio">
+    <h2>About the Legend</h2>
+    <p>
+      Technoblade (born June 1, 1999 – June 30, 2022) was a Minecraft YouTuber and streamer known for his incredible PvP skills, dry humor, and his iconic pig persona. He rose to fame through his participation in the Minecraft Championship (MCC), SMP Earth, and Dream SMP, where he became a fan favorite for his tactical genius and memorable one-liners.
+    </p>
+    <p>
+      Beyond his gameplay, Technoblade was a beloved member of the Minecraft community. His family announced his passing in June 2022 after a battle with cancer, but his legacy lives on through his videos, quotes, and the countless lives he touched. The phrase “Technoblade never dies” is more than a meme — it’s a testament to his enduring spirit.
+    </p>
+  </section>
 
-<section id="legacy">
-  <h2>His Legacy</h2>
-  <p>Technoblade's influence extends far beyond Minecraft. He raised over $500,000 for cancer research through charity streams, and his channel continues to inspire new generations of players. His determination, wit, and authenticity are a beacon for the gaming community.</p>
-  <div class="legacy-grid">
-    <div class="legacy-card">
-      <h3>🏆 PvP Champion</h3>
-      <p>Multiple Minecraft Championship wins, Bedwars legend, and the undisputed king of Potato Wars.</p>
+  <!-- ========== QUOTES ========== -->
+  <section class="quotes">
+    <h2>Memorable Quotes</h2>
+    <div class="quote-carousel" id="quoteCarousel">
+      <div class="quote-slide active">
+        “Technoblade never dies.”
+        <span class="author">— Technoblade</span>
+      </div>
+      <div class="quote-slide">
+        “I have a dream. That one day, every person in this nation will have the right to be a potato farmer.”
+        <span class="author">— Technoblade, SMP Earth</span>
+      </div>
+      <div class="quote-slide">
+        “I’m not a hero. I’m a villain. But my villainy is for a greater good.”
+        <span class="author">— Technoblade, Dream SMP</span>
+      </div>
+      <div class="quote-slide">
+        “If you want to be a hero, you can’t be afraid to be a villain.”
+        <span class="author">— Technoblade</span>
+      </div>
+      <div class="quote-slide">
+        “I’m the best PvP player in the world. Sorry, not sorry.”
+        <span class="author">— Technoblade</span>
+      </div>
     </div>
-    <div class="legacy-card">
-      <h3>❤️ Fundraiser</h3>
-      <p>Raised over $500,000 for the Sarcoma Foundation of America and other cancer charities.</p>
+    <div class="quote-nav">
+      <button id="prevQuote">&#8592; Previous</button>
+      <button id="nextQuote">Next &#8594;</button>
     </div>
-    <div class="legacy-card">
-      <h3>📺 Content Creator</h3>
-      <p>Over 10 million subscribers on YouTube, with videos that combined humor, skill, and storytelling.</p>
-    </div>
-    <div class="legacy-card">
-      <h3>👑 Community Icon</h3>
-      <p>His catchphrases, memes, and personality created a community that remains active and supportive.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<footer class="main-footer">
-  <p>Made with ❤️ by the Technoblade fan community</p>
-  <p>&copy; 2026 Fan Tribute · Not affiliated with Technoblade or his estate</p>
-  <p>This is a non‑profit fan project. All rights belong to their respective owners.</p>
-</footer>
+  <!-- ========== LEGACY ========== -->
+  <section id="legacy">
+    <h2>Legacy</h2>
+    <div class="legacy-grid">
+      <div class="legacy-card">
+        <div class="icon">&#9876;</div>
+        <h3>PvP Champion</h3>
+        <p>Dominating Minecraft tournaments with unmatched skill.</p>
+      </div>
+      <div class="legacy-card">
+        <div class="icon">&#127918;</div>
+        <h3>Dream SMP</h3>
+        <p>Unforgettable arcs and alliances that shaped the server.</p>
+      </div>
+      <div class="legacy-card">
+        <div class="icon">&#127800;</div>
+        <h3>Community</h3>
+        <p>Inspiring millions with his humor and resilience.</p>
+      </div>
+      <div class="legacy-card">
+        <div class="icon">&#129492;</div>
+        <h3>Never Dies</h3>
+        <p>His legacy lives on in every fan who remembers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>Made with love by the Technoblade community.</p>
+    <p class="never-dies">Technoblade Never Dies</p>
+    <p style="margin-top: 0.5rem;">© 2026 Fan Tribute · Not affiliated with the Technoblade estate.</p>
+  </footer>
+
+  <script>
+    (function() {
+      // Quote carousel
+      const slides = document.querySelectorAll('.quote-slide');
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      }
+
+      document.getElementById('nextQuote').addEventListener('click', function() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      });
+
+      document.getElementById('prevQuote').addEventListener('click', function() {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+      });
+
+      // Auto-rotate every 5 seconds
+      setInterval(function() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 5000);
+    })();
+  </script>
 </body>
 </html>

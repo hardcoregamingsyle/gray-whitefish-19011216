@@ -9,15 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: npx serve -s . -l 3000 &
-      - run: sleep 3 && curl -f http://localhost:3000 || exit 1
+      - name: Start static server
+        run: python3 -m http.server 3000 --bind 0.0.0.0 &
+      - name: Health check
+        run: sleep 3 && curl -f http://localhost:3000 || exit 1
       - name: Cloudflare Tunnel (Post)
         run: |
           curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CF_ACCOUNT_ID }}/tunnels" \
             -H "Authorization: Bearer ${{ secrets.CF_API_TOKEN }}" \
             -H "Content-Type: application/json" \
-            --data '{"name":"thalamus-sandbox-'${{ github.run_id }}'","tunnel_secret":"'${{ secrets.TUNNEL_SECRET }}'"}'
+            --data '{"name":"thalamus-sandbox-${{ github.run_id }}","tunnel_secret":"${{ secrets.TUNNEL_SECRET }}"}'
